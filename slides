@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Slider</title>
+    <link rel="stylesheet" href="slider.css">
+    <script src="slider.js" defer></script>
+</head>
+<body>
+    <div class="slider">
+        <div class="slides">
+            <img src="img">
+            <img src="img">
+            <img src="img">
+        </div>
+        <div class="navigation">
+            <button id="prev">inapoi</button>
+            <button id="next">urmatorul</button>
+        </div>
+    </div>
+</body>
+</html>
+
+
+2css:.slider {
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.navigation {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+3;js:const slides = document.querySelector('.slides');
+const slideCount = document.querySelectorAll('.slide').length;
+let currentIndex = 0;
+
+document.getElementById('next').addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % slideCount;
+    updateSlidePosition();
+});
+
+document.getElementById('prev').addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+    updateSlidePosition();
+});
+
+function updateSlidePosition() {
+    slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
+setInterval(() => {
+    currentIndex = (currentIndex + 1) % slideCount;
+    updateSlidePosition();
+}, 3000);
