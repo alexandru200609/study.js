@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="n.css">
+    <script src="n.js" defer></script>
+</head>
+<body>
+    <form id="myForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <br>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email">
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+    <div id="errorMessages" class="error"></div>
+</body>
+</html>
+2.error {
+    color: red;
+}
+3document.getElementById('myForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    let errors = [];
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (name === '') {
+        errors.push('Name is required.');
+    }
+    if (!emailPattern.test(email)) {
+        errors.push('Email is not valid.');
+    }
+
+    const errorMessages = document.getElementById('errorMessages');
+    if (errors.length > 0) {
+        errorMessages.innerHTML = errors.join('<br>');
+    } else {
+        errorMessages.innerHTML = 'Form submitted successfully!';
+        // You can add code here to submit the form data using fetch or other methods.
+    }
+});
