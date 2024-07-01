@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Listener Example</title>
+    <script src="n.js" defer></script>
+</head>
+<body>
+    <button id="myButton">Click me</button>
+</body>
+</html>
+
+
+
+2
+document.getElementById('myButton').addEventListener('click', function() {
+    document.body.style.backgroundColor = 'lightblue';
+    alert('Button was clicked!');
+});
+v
