@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>functia sum</title>
+    <script src="n.js" defer></script>
+</head>
+<body>
+    <h1>deschide consola</h1>
+</body>
+</html>
+2.
+function sum(a, b) {
+    return a + b;
+}
+
+// Test the function with different pairs of numbers
+console.log(sum(5, 10)); // Expected output: 15
+console.log(sum(-5, 5)); // Expected output: 0
+console.log(sum(3.5, 2.5)); // Expected output: 6
+console.log(sum(0, 0)); // Expected output: 0
+console.log(sum(100, 200)); // Expected output: 300
+
+
+
+
